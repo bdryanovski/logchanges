@@ -1,4 +1,4 @@
-import { CliOptions, ChangelogConfiguration, GitCommit, FormaterOptions } from '../interfaces';
+import { ChangelogConfiguration, GitCommit, FormaterOptions } from '../interfaces';
 
 export class Formater {
   public config: ChangelogConfiguration;
@@ -26,6 +26,6 @@ export class Formater {
   }
 
   public render(commits: GitCommit[]): any {
-    return '';
+    return commits;
   }
 }

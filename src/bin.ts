@@ -4,7 +4,7 @@ import CLI from './cli';
 import { generate } from './index';
 import { CliOptions, ChangelogConfiguration } from './interfaces';
 import deepmerge from './helpers/deepmerge';
-import { Configuration, CONFIG } from './configuration';
+import { Configuration } from './configuration';
 
 const STDOUT_PATH = '-';
 

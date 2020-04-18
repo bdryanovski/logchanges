@@ -1,4 +1,4 @@
-import { CliOptions, GitCommit, ChangelogConfiguration } from './interfaces';
+import { GitCommit, ChangelogConfiguration } from './interfaces';
 const cp = require('child_process');
 
 const SEPARATOR = '===END===';
