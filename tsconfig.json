@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["ES6", "ES2015"],
+    "outDir": "lib",
+    "rootDir": "src",
+    "types": ["node", "github-url-from-git", "@types/jest"],
+    "experimentalDecorators": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "importHelpers": true
+  },
+  "exclude": ["node_modules", "lib", "templates", "__tests__"]
+}

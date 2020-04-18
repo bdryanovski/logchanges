@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://fake.com/"
+  },
+  "changelog": {
+    "target": "2.0.0"
+  }
+}

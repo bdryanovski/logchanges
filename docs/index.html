@@ -1,0 +1,347 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>logchanges</title>
+	<meta name="description" content="Documentation for logchanges">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">logchanges</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>logchanges</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#logchanges" id="logchanges" style="color: inherit; text-decoration: none;">
+					<h1>LogChanges</h1>
+				</a>
+				<p>Opinionated changelog creation tool based on git commits and history.</p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h2>Getting started</h2>
+				</a>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h3>Installation</h3>
+				</a>
+				<pre><code class="language-bash">npm install logchanges@latest -g</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h3>Usage</h3>
+				</a>
+				<pre><code class="language-bash">logchanges</code></pre>
+				<p>As part of the <code>npm version</code> cycle to update changelog.</p>
+				<pre><code class="language-json">// package.json
+ ...
+ "scripts": {
+    "preversion": "logchanges &amp;&amp; git add CHANGELOG.md &amp;&amp; git commit -s -S -m 'chore: update CHANGELOG.md'"
+ }
+ ...</code></pre>
+				<a href="#versioning" id="versioning" style="color: inherit; text-decoration: none;">
+					<h4>Versioning</h4>
+				</a>
+				<p>If no version is set the version from the <code>package.json</code> will be taken as latest, there is a way to overwrite it if needed.</p>
+				<pre><code class="language-bash">logchanges --target 2.3.5</code></pre>
+				<a href="#configuration" id="configuration" style="color: inherit; text-decoration: none;">
+					<h4>Configuration</h4>
+				</a>
+				<p>There are two ways to configure</p>
+				<p>Inside the <code>package.json</code> file as part of <code>changelog</code> section.</p>
+				<pre><code class="language-json">{
+  <span class="hljs-attr">"changelog"</span>: {
+    <span class="hljs-comment">// configuration</span>
+  }
+}</code></pre>
+				<p>Or by creating <code>changelogrc.json</code> file inside the root folder.</p>
+				<pre><code class="language-json"><span class="hljs-comment">// changelogrc.json</span>
+{
+  <span class="hljs-comment">// configuration</span>
+}</code></pre>
+				<p>There is also a option to set a path to json configuration</p>
+				<pre><code class="language-bash">logchanges --config ./config/changelogrc.json</code></pre>
+				<p>Configure some of the description of the categories or the date format used into the Markdown.</p>
+				<pre><code class="language-js"><span class="hljs-comment">// Default configuration</span>
+{
+  <span class="hljs-comment">// Unknown categories will be under the `other` scope/category</span>
+  <span class="hljs-attr">default_type</span>: <span class="hljs-string">'other'</span>,
+  <span class="hljs-comment">// Default supported category</span>
+  <span class="hljs-attr">types</span>: {
+    <span class="hljs-attr">breaking</span>: <span class="hljs-string">'Breaking Changes'</span>,
+    <span class="hljs-attr">build</span>: <span class="hljs-string">'Build System / Dependencies'</span>,
+    <span class="hljs-attr">ci</span>: <span class="hljs-string">'Continuous Integration'</span>,
+    <span class="hljs-attr">chore</span>: <span class="hljs-string">'Chores'</span>,
+    <span class="hljs-attr">docs</span>: <span class="hljs-string">'Documentation Changes'</span>,
+    <span class="hljs-attr">feat</span>: <span class="hljs-string">'New Features'</span>,
+    <span class="hljs-attr">fix</span>: <span class="hljs-string">'Bug Fixes'</span>,
+    <span class="hljs-attr">other</span>: <span class="hljs-string">'Other Changes'</span>,
+    <span class="hljs-attr">perf</span>: <span class="hljs-string">'Performance Improvements'</span>,
+    <span class="hljs-attr">refactor</span>: <span class="hljs-string">'Refactors'</span>,
+    <span class="hljs-attr">revert</span>: <span class="hljs-string">'Reverts'</span>,
+    <span class="hljs-attr">style</span>: <span class="hljs-string">'Code Style Changes'</span>,
+    <span class="hljs-attr">test</span>: <span class="hljs-string">'Tests'</span>
+  },
+  <span class="hljs-comment">// Markdown date format used into the render</span>
+  <span class="hljs-attr">dateFormat</span>: <span class="hljs-string">'mmmm d, yyyy'</span>,
+  <span class="hljs-comment">// Default output file when format is Markdown</span>
+  <span class="hljs-attr">outputMarkdown</span>: <span class="hljs-string">'CHANGELOG.md'</span>,
+  <span class="hljs-comment">// Default output file when format is JSON</span>
+  <span class="hljs-attr">outputJSON</span>: <span class="hljs-string">'changelog.json'</span>
+  <span class="hljs-comment">// Default format</span>
+  <span class="hljs-attr">format</span>: <span class="hljs-string">'markdown'</span>,
+  <span class="hljs-comment">// Specific range</span>
+  <span class="hljs-attr">range</span>: <span class="hljs-literal">undefined</span>,
+  <span class="hljs-comment">// Exclude commits</span>
+  <span class="hljs-attr">exclude</span>: <span class="hljs-string">''</span>,
+  <span class="hljs-comment">// Output location starting from root</span>
+  <span class="hljs-attr">output</span>: <span class="hljs-literal">undefined</span>,
+  <span class="hljs-comment">// Repo URL</span>
+  <span class="hljs-attr">repoUrl</span>: <span class="hljs-string">''</span>,
+  <span class="hljs-comment">// Exclude commit body drom output</span>
+  <span class="hljs-attr">nobody</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-comment">// Allow unknown categories</span>
+  <span class="hljs-attr">allowUnknown</span>: <span class="hljs-literal">false</span>,
+}</code></pre>
+				<a href="#link-to-repos" id="link-to-repos" style="color: inherit; text-decoration: none;">
+					<h4>Link to repos</h4>
+				</a>
+				<p>If you add <code>--repo-url</code> as param the generated output will include links to online version of the commits like Github, Bitbucket and Gitlab.</p>
+				<pre><code class="language-bash">logchanges --repo-url http://my.custom.repo/commits</code></pre>
+				<p>Will result in</p>
+				<ul>
+					<li>fix bug in code (<a href="http://my.custom.repo/commits/af4s1as">af4s1as</a>)</li>
+				</ul>
+				<p>Default will be get from <code>package.json</code> repo settings.</p>
+				<a href="#formating" id="formating" style="color: inherit; text-decoration: none;">
+					<h4>Formating</h4>
+				</a>
+				<p>The default format is Markdown. But there are additional option like JSON.</p>
+				<pre><code class="language-bash">logchanges --format json</code></pre>
+				<a href="#output" id="output" style="color: inherit; text-decoration: none;">
+					<h4>Output</h4>
+				</a>
+				<p>By default the output will be to <code>CHANGELOG.md</code> or if format is selected to JSON to <code>changelog.json</code>. To change this you could use the <code>--output</code> flag.</p>
+				<pre><code class="language-bash">logchanges --output PROJECT_CHANGELOG.md</code></pre>
+				<p>In case that there is need to not write to disk and pipe the output to another command you could use <code>-</code></p>
+				<pre><code class="language-bash">logchanges -</code></pre>
+				<a href="#help" id="help" style="color: inherit; text-decoration: none;">
+					<h4>Help</h4>
+				</a>
+				<p>For more information check <code>--help</code></p>
+				<pre><code class="language-bash">$ logchanges --<span class="hljs-built_in">help</span>
+
+Usage: logchanges [options]
+
+Generate a changelog from git commits.
+
+Options:
+  -V, --version           output the version number
+  -t, --target &lt;version&gt;  specify version
+  -c, --config &lt;path&gt;     path to changelogrc.json
+  -r, --range &lt;range&gt;     generate from specific tag or range (e.g. v1.2.3 or v1.2.3..v1.2.4)
+  -x, --exclude &lt;types&gt;   exclude selected commit types (comma separated)
+  -o, --output [file]     file to write to, defaults to ./CHANGELOG.md, use - <span class="hljs-keyword">for</span> stdout (default: <span class="hljs-string">"CHANGELOG.md"</span>)
+  -u, --repo-url [url]    specify the repo URL <span class="hljs-keyword">for</span> commit links, defaults to checking the package.json
+  -f, --format [format]   specify the output format defualt is markdown (default: <span class="hljs-string">"markdown"</span>)
+  -nb --nobody [boolean]  ignore the body from commit message
+  -a, --allow-unknown     allow unknown commit types
+  -h, --<span class="hljs-built_in">help</span>              display <span class="hljs-built_in">help</span> <span class="hljs-keyword">for</span> <span class="hljs-built_in">command</span></code></pre>
+				<a href="#extending-foramter" id="extending-foramter" style="color: inherit; text-decoration: none;">
+					<h2>Extending Foramter</h2>
+				</a>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Changelog, Formater, GitCommit, CliOptions, ChangelogConfiguration } <span class="hljs-keyword">from</span> <span class="hljs-string">'logchanges'</span>
+
+<span class="hljs-keyword">class</span> ArrayFormater <span class="hljs-keyword">extends</span> Formater {
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">{ config: ChangelogConfiguration }</span>) {
+    <span class="hljs-keyword">super</span>(config);
+  }
+
+  render(commits: GitCommit[]): GitCommit[] {
+    <span class="hljs-comment">// Get commits and tranfsorm them as you will</span>
+    <span class="hljs-keyword">return</span> commits;
+  }
+}
+
+<span class="hljs-keyword">const</span> options: ChangelogConfiguration = {
+  range: <span class="hljs-string">'282522f5...86a82ff5'</span>
+}
+
+Changelog(options, <span class="hljs-function">(<span class="hljs-params">commits: GitCommit[], cfg: ChangelogConfiguration</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> format = <span class="hljs-keyword">new</span> ArrayFormater(cfg.config)
+
+  <span class="hljs-built_in">console</span>.log(format.render(commits))
+})</code></pre>
+				<a href="#generate-historical-data" id="generate-historical-data" style="color: inherit; text-decoration: none;">
+					<h2>Generate historical data</h2>
+				</a>
+				<p>Use <code>--range</code> to set start and end of the history and <code>--target</code> to set version number</p>
+				<pre><code class="language-bash">logchanges --range a811712..HEAD --target 2.0.5</code></pre>
+				<p>This could be automated by going over the tags and creating ranges to be scrapped.</p>
+				<pre><code class="language-bash"><span class="hljs-meta">#!/bin/bash
+</span>
+tags=(`git tag --sort=creatordate`);
+
+<span class="hljs-keyword">for</span> ((i=0; i &lt; <span class="hljs-variable">${#tags[@]}</span>; ++i))
+<span class="hljs-keyword">do</span>
+  a=<span class="hljs-variable">${tags[i]}</span>
+  b=<span class="hljs-variable">${tags[i+1]}</span>
+  t=<span class="hljs-variable">${tags[i+1]}</span>
+
+  <span class="hljs-keyword">if</span> <span class="hljs-built_in">test</span> -z <span class="hljs-variable">$b</span>
+  <span class="hljs-keyword">then</span>
+    <span class="hljs-comment"># if you need to get logs including latest chnages uncomment the two lines</span>
+    <span class="hljs-comment"># below and remove the exit(0)</span>
+    <span class="hljs-comment"># b="HEAD"</span>
+    <span class="hljs-comment"># t=$a</span>
+    <span class="hljs-comment"># Don't create log for latest changes</span>
+    <span class="hljs-built_in">exit</span>(0)
+  <span class="hljs-keyword">fi</span>
+
+  logchanges --range <span class="hljs-variable">${a}</span>...<span class="hljs-variable">${b}</span> --target <span class="hljs-variable">${t}</span> --nobody --allow-unknown
+<span class="hljs-keyword">done</span></code></pre>
+				<p>This will result in similar to this</p>
+				<pre><code class="language-bash">logchanges --range v1.0.1...v1.0.2 --target v1.0.2 --nobody --allow-unknown
+logchanges --range v1.0.2...v1.0.3 --target v1.0.3 --nobody --allow-unknown
+...</code></pre>
+				<a href="#roadmap" id="roadmap" style="color: inherit; text-decoration: none;">
+					<h2>Roadmap</h2>
+				</a>
+				<p>See the <a href="https://github.com/bdryanovski/logchanges/issues">open issues</a> for a list of proposed features (and known issues).</p>
+				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+					<h2>Contributing</h2>
+				</a>
+				<ol>
+					<li>Fork it (<a href="https://github.com/bdryanovski/logchanges/fork">https://github.com/bdryanovski/logchanges/fork</a>)</li>
+					<li>Create your feature branch (<code>git checkout -b feature/fooBar</code>)</li>
+					<li>Commit your changes (<code>git commit -am &#39;Add some fooBar&#39;</code>)</li>
+					<li>Push to the branch (<code>git push origin feature/fooBar</code>)</li>
+					<li>Create a new Pull Request</li>
+				</ol>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>This project is licensed under the MIT License - see the <a href="LICENSE.md">LICENSE.md</a> file for details</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_bin_.html">&quot;bin&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_cli_.html">&quot;cli&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_configuration_.html">&quot;configuration&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_fetch_commits_.html">&quot;fetch.commits&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_formaters_formater_.html">&quot;formaters/formater&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_formaters_json_formater_.html">&quot;formaters/json.formater&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_formaters_markdown_formater_.html">&quot;formaters/markdown.formater&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_helpers_deepmerge_.html">&quot;helpers/deepmerge&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_.html">&quot;interfaces&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_package_.html">&quot;package&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
