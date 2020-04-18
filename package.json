@@ -18,6 +18,8 @@
     "clean": "rm -rf ./lib ./docs",
     "tscov": "tscov --min-coverage 90",
     "tscov:d": "tscov --details",
+    "declaration:build": "rm -f libs/index.d.ts && tsc -p declaration.tsconfig.json",
+    "declaration:check": "git diff --exit-code -- libs/index.d.ts",
     "publish-package": "npm run build && npm publish",
     "docs": "typedoc --out docs ./src",
     "changelog": "./bin/index.js",

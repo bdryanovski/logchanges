@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "declarationDir": "declarations",
+    "declaration": true,
+    "noEmit": false,
+    "emitDeclarationOnly": true
+  }
+}

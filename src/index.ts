@@ -4,6 +4,9 @@ import { JsonFormater } from './formaters/json.formater';
 import { GitCommit, JsonOutput, ChangelogConfiguration } from './interfaces';
 import { Configuration } from './configuration';
 
+/** Export interfaces */
+export * from './interfaces';
+
 /**
  *  Generate Markdown or JSON output dependent on the configuration `format`
  *
