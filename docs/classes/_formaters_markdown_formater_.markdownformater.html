@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Markdown Foramter</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -122,7 +129,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_formaters_formater_.formater.html">Formater</a>.<a href="_formaters_formater_.formater.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/26b36a5/src/formaters/markdown.formater.ts#L5">src/formaters/markdown.formater.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/18928ee/src/formaters/markdown.formater.ts#L8">src/formaters/markdown.formater.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -150,7 +157,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_formaters_formater_.formater.html">Formater</a>.<a href="_formaters_formater_.formater.html#config">config</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/26b36a5/src/formaters/formater.ts#L4">src/formaters/formater.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/18928ee/src/formaters/formater.ts#L7">src/formaters/formater.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -168,16 +175,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_formaters_formater_.formater.html">Formater</a>.<a href="_formaters_formater_.formater.html#getcommiturl">getCommitUrl</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/26b36a5/src/formaters/formater.ts#L10">src/formaters/formater.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/18928ee/src/formaters/formater.ts#L18">src/formaters/formater.ts:18</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create link to commit</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>baseUrl: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>url</p>
+									</div>
 								</li>
 								<li>
 									<h5>commitHash: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>commit id</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -195,13 +213,26 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_formaters_formater_.formater.html">Formater</a>.<a href="_formaters_formater_.formater.html#gettype">getType</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/26b36a5/src/formaters/formater.ts#L24">src/formaters/formater.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/18928ee/src/formaters/formater.ts#L35">src/formaters/formater.ts:35</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get category of the commit</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>todo</dt>
+									<dd><p>We could optimize it here and ask only for the <code>type</code></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>commit: <a href="../interfaces/_interfaces_.gitcommit.html" class="tsd-signature-type">GitCommit</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>GitCommit object</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -219,13 +250,21 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_formaters_formater_.formater.html">Formater</a>.<a href="_formaters_formater_.formater.html#render">render</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/26b36a5/src/formaters/markdown.formater.ts#L10">src/formaters/markdown.formater.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/18928ee/src/formaters/markdown.formater.ts#L18">src/formaters/markdown.formater.ts:18</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Markdown render</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>commits: <a href="../interfaces/_interfaces_.gitcommit.html" class="tsd-signature-type">GitCommit</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>array of git commits</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -262,7 +301,7 @@
 						<a href="../modules/_formaters_markdown_formater_.html">&quot;formaters/markdown.formater&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_helpers_deepmerge_.html">&quot;helpers/deepmerge&quot;</a>
+						<a href="../modules/_helpers_merge_.html">&quot;helpers/merge&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
@@ -314,6 +353,8 @@
 				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

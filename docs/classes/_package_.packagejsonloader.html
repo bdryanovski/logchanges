@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Used to load JSON files into memory and access it</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -114,7 +121,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/26b36a5/src/package.ts#L5">src/package.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/18928ee/src/package.ts#L8">src/package.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -132,11 +139,11 @@
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="package" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagOptional">Optional</span> package</h3>
-					<div class="tsd-signature tsd-kind-icon">package<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_.changelogconfiguration.html" class="tsd-signature-type">ChangelogConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_interfaces_.packagejsonfile.html" class="tsd-signature-type">PackageJsonFile</a></div>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> package</h3>
+					<div class="tsd-signature tsd-kind-icon">package<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_.changelogconfiguration.html" class="tsd-signature-type">ChangelogConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_interfaces_.packagejsonfile.html" class="tsd-signature-type">PackageJsonFile</a><span class="tsd-signature-symbol"> = {} as ChangelogConfiguration</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/26b36a5/src/package.ts#L5">src/package.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/18928ee/src/package.ts#L8">src/package.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -147,16 +154,21 @@
 					<a name="getcontent" class="tsd-anchor"></a>
 					<h3>get<wbr>Content</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Content<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_interfaces_.changelogconfiguration.html" class="tsd-signature-type">ChangelogConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_interfaces_.packagejsonfile.html" class="tsd-signature-type">PackageJsonFile</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Content<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_.changelogconfiguration.html" class="tsd-signature-type">ChangelogConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_interfaces_.packagejsonfile.html" class="tsd-signature-type">PackageJsonFile</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/26b36a5/src/package.ts#L12">src/package.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/18928ee/src/package.ts#L18">src/package.ts:18</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_interfaces_.changelogconfiguration.html" class="tsd-signature-type">ChangelogConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_interfaces_.packagejsonfile.html" class="tsd-signature-type">PackageJsonFile</a></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the content of the JSON file or empty Object</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_interfaces_.changelogconfiguration.html" class="tsd-signature-type">ChangelogConfiguration</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_interfaces_.packagejsonfile.html" class="tsd-signature-type">PackageJsonFile</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -190,7 +202,7 @@
 						<a href="../modules/_formaters_markdown_formater_.html">&quot;formaters/markdown.formater&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_helpers_deepmerge_.html">&quot;helpers/deepmerge&quot;</a>
+						<a href="../modules/_helpers_merge_.html">&quot;helpers/merge&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
@@ -236,6 +248,8 @@
 				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
