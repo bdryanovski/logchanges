@@ -2,7 +2,6 @@ import { Formater } from './formater';
 import { GitCommit, JsonOutput, FormaterOptions } from '../interfaces';
 
 export class JsonFormater extends Formater {
-  private date: number = new Date().getTime();
   constructor({ config }: FormaterOptions) {
     super({ config });
   }
@@ -14,7 +13,7 @@ export class JsonFormater extends Formater {
     const content: JsonOutput = {
       [version]: {
         version,
-        date: this.date,
+        date: new Date().getTime(),
         changes: {},
       }
     }

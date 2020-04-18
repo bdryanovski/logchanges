@@ -8,17 +8,13 @@ export class Formater {
   }
 
   public getCommitUrl(baseUrl: string, commitHash: string): string {
-    let urlCommitName = 'commit';
+    const path = baseUrl.includes('bitbucket') ? 'commits' : 'commit';
 
-    if (baseUrl.indexOf('bitbucket') !== -1) {
-      urlCommitName = 'commits';
-    }
-
-    if (baseUrl.indexOf('gitlab') !== -1 && baseUrl.slice(-4) === '.git') {
+    if (baseUrl.includes('gitlab') && baseUrl.slice(-4) === '.git') {
       baseUrl = baseUrl.slice(0, -4);
     }
 
-    return `${baseUrl}/${urlCommitName}/${commitHash}`;
+    return `${baseUrl}/${path}/${commitHash}`;
   };
 
   public getType(commit: GitCommit): string {

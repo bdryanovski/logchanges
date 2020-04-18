@@ -8,20 +8,11 @@ export class MarkdownFormater extends Formater {
   }
 
   render(commits: GitCommit[]): string {
-    const version = this.config.version || this.config.target || '';
     const content: string[] = [];
     const date = dateformat(new Date(), this.config.dateFormat);
-    let heading = '';
+    const version = this.config.version || this.config.target || '';
 
-    heading = '##';
-
-    if (version) {
-      heading += ` ${version} (${date})`;
-    } else {
-      heading += date.toString();
-    }
-
-    content.push(heading);
+    content.push('## ' + (version ? ` ${version} (${date})` : date.toString()));
     content.push('');
 
     const types: any = {};
@@ -72,7 +63,6 @@ export class MarkdownFormater extends Formater {
 
         });
       });
-
 
       content.push('');
     });
