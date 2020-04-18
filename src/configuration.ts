@@ -3,6 +3,9 @@ import fs from 'fs';
 import merge from './helpers/merge';
 import { PackageJSONLoader } from './package';
 
+/**
+ * Default configuration
+ */
 export const CONFIG: ChangelogConfiguration = {
   default_type: 'other',
   types: {
@@ -36,6 +39,11 @@ export const CONFIG: ChangelogConfiguration = {
 };
 
 
+/**
+ * Get access to the configration
+ *
+ * If needed, fetch it from changelogrc.json, package.json or create it on the fly
+ */
 export class Configuration {
   constructor(config: ChangelogConfiguration = {} as ChangelogConfiguration) {
     let pkgjson;
@@ -70,21 +78,34 @@ export class Configuration {
     }
   }
 
+  /**
+   * Load external content and replace the _config
+   * @param path path to file
+   */
   loadFromPath(path: string) {
     const loader = new PackageJSONLoader(path);
     const content = loader.getContent();
     this._config = merge(CONFIG, content)
   }
 
+  /**
+   * Get config
+   */
   private _config?: ChangelogConfiguration;
   get config() {
     return this._config || CONFIG;
   }
 
+  /**
+   * Get version
+   */
   get version() {
     return this._config?.version || this._config?.target || ''
   }
 
+  /**
+   * Get repository
+   */
   get repository() {
     return this._config?.repoUrl || ''
   }

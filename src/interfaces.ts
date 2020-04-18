@@ -63,9 +63,7 @@ export interface JsonOutput {
       };
     };
   }
-
 }
-
 
 export interface GitCommit {
   hash: string;

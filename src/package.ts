@@ -1,6 +1,9 @@
 import fs from 'fs';
 import { ChangelogConfiguration, PackageJsonFile } from './interfaces';
 
+/**
+ * Used to load JSON files into memory and access it
+ */
 export class PackageJSONLoader {
   private package: ChangelogConfiguration | PackageJsonFile = {} as ChangelogConfiguration;
   constructor(path: string) {
@@ -9,7 +12,10 @@ export class PackageJSONLoader {
     }
   }
 
+  /**
+   * Get the content of the JSON file or empty Object
+   */
   public getContent() {
-    return this.package;
+    return this.package || {};
   }
 }

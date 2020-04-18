@@ -2,11 +2,19 @@ import dateformat from 'dateformat';
 import { Formater } from './formater';
 import { GitCommit, FormaterOptions } from '../interfaces';
 
+/**
+ * Markdown Foramter
+ */
 export class MarkdownFormater extends Formater {
   constructor({ config }: FormaterOptions) {
     super({ config });
   }
 
+  /**
+   * Markdown render
+   *
+   * @param commits array of git commits
+   */
   render(commits: GitCommit[]): string {
     const content: string[] = [];
     const date = dateformat(new Date(), this.config.dateFormat);

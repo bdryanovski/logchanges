@@ -1,11 +1,19 @@
 import { Formater } from './formater';
 import { GitCommit, JsonOutput, FormaterOptions } from '../interfaces';
 
+/**
+ * JSON Formater
+ */
 export class JsonFormater extends Formater {
   constructor({ config }: FormaterOptions) {
     super({ config });
   }
 
+  /**
+   * Render JSON output
+   *
+   * @param commits array of git commits
+   */
   render(commits: GitCommit[]): JsonOutput {
     const version = this.config.version || this.config.target || '';
 

@@ -5,10 +5,13 @@ const SEPARATOR = '===END===';
 const COMMIT_PATTERN = /^([^)]*)(?:\(([^)]*?)\)|):(.*?(?:\[([^\]]+?)\]|))\s*$/;
 const FORMAT = '%H%n%s%n%b%n' + SEPARATOR;
 
+/**
+ * Extract commits from git and format them in usable form
+ */
 export class FetchCommits {
   private options: ChangelogConfiguration;
   private commits: any;
-  public revisions: string;
+  private revisions: string;
   constructor(options: ChangelogConfiguration) {
     this.options = options;
     let tag: string;
@@ -30,6 +33,11 @@ export class FetchCommits {
     this.revisions = revisions;
   }
 
+  /**
+   * Extract commits from git based on revisions range
+   *
+   * @param revisions
+   */
   public fetch(revisions?: string): GitCommit[] {
 
     this.commits = cp.execSync(

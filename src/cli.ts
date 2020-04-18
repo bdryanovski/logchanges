@@ -1,6 +1,9 @@
 import CLI from 'commander';
 import { CONFIG } from './configuration';
 
+/**
+ * JSON form of package.json file.
+ */
 const LocalPackage: Record<string, string> = require('../package.json');
 
 function list(val: string) {

@@ -4,6 +4,11 @@ import { JsonFormater } from './formaters/json.formater';
 import { GitCommit, JsonOutput, ChangelogConfiguration } from './interfaces';
 import { Configuration } from './configuration';
 
+/**
+ *  Generate Markdown or JSON output dependent on the configuration `format`
+ *
+ * @param options configuration to be passed to internal methods
+ */
 export function generate(options: ChangelogConfiguration): JsonOutput | string {
   const config = (new Configuration(options)).config;
   const commits = (new FetchCommits(options)).fetch();
@@ -16,6 +21,12 @@ export function generate(options: ChangelogConfiguration): JsonOutput | string {
 
 }
 
+/**
+ * Extend changelog with custom formatter
+ *
+ * @param options
+ * @param callback
+ */
 export function Changelog(options: ChangelogConfiguration, callback: (commits: GitCommit[], config: ChangelogConfiguration) => {}): void {
   const cfg = new Configuration(options);
   const commits = (new FetchCommits(options)).fetch();

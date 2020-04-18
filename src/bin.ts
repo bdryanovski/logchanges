@@ -10,6 +10,9 @@ const STDOUT_PATH = '-';
 
 CLI.parse(process.argv);
 
+/**
+ * Get and run task based on the CLI props
+ */
 (function (cli: CliOptions) {
 
   const cfg = new Configuration({
