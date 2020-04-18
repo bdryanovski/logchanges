@@ -2,8 +2,8 @@
 import fs from 'fs';
 import CLI from './cli';
 import { generate } from './index';
-import { CliOptions, ChangelogConfiguration } from './interfaces';
-import deepmerge from './helpers/deepmerge';
+import { CliOptions, ChangelogConfiguration, JsonOutput } from './interfaces';
+import merge from './helpers/merge';
 import { Configuration } from './configuration';
 
 const STDOUT_PATH = '-';
@@ -27,25 +27,24 @@ CLI.parse(process.argv);
     cfg.loadFromPath(cli.config)
   }
 
-  const newChanges = generate(cfg.config);
-
   let content = '';
   let output = '';
 
   if (CLI.format === 'json') {
     output = cfg.config.outputJSON || '';
     // merge objects
-    let currentContent: Record<string, string> | string = {};
+    let currentContent: Record<string, string> = {};
+    let currentString = '{}'
     if (fs.existsSync(output)) {
-      currentContent = fs.readFileSync(output, 'utf8');
+      currentString = fs.readFileSync(output, 'utf8');
       try {
-        currentContent = JSON.parse(currentContent)
+        currentContent = JSON.parse(currentString)
       } catch {
         // do nothing
       }
     }
 
-    content = JSON.stringify(deepmerge(currentContent, newChanges));
+    content = JSON.stringify(merge(currentContent, generate(cfg.config) as JsonOutput));
   }
 
   if (CLI.format === 'markdown') {
@@ -54,7 +53,7 @@ CLI.parse(process.argv);
     if (fs.existsSync(output)) {
       currentContent = fs.readFileSync(output, 'utf8');
     }
-    content = newChanges + currentContent;
+    content = generate(cfg.config) as string + currentContent;
   }
 
 

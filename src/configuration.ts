@@ -1,6 +1,6 @@
 import { ChangelogConfiguration, PackageJsonFile } from './interfaces';
 import fs from 'fs';
-import deepmerge from './helpers/deepmerge';
+import merge from './helpers/merge';
 import { PackageJSONLoader } from './package';
 
 export const CONFIG: ChangelogConfiguration = {
@@ -41,19 +41,19 @@ export class Configuration {
     let pkgjson;
 
     if (config) {
-      this._config = deepmerge(CONFIG, config)
+      this._config = merge(CONFIG, config)
     }
 
     // Get Package Version
     if (fs.existsSync(`${process.cwd()}/package.json`)) {
       pkgjson = (new PackageJSONLoader(`${process.cwd()}/package.json`)).getContent() as PackageJsonFile;
-      this._config = deepmerge(this._config, { target: pkgjson?.version })
+      this._config = merge(this.config, { target: pkgjson?.version })
     }
 
     // Load default
     // Check for changelogrc.json
     if (fs.existsSync(`${process.cwd()}/changelogrc.json`)) {
-      this._config = deepmerge(
+      this._config = merge(
         this.config,
         (new PackageJSONLoader(`${process.cwd()}/changelogrc.json`)).getContent()
       )
@@ -62,7 +62,7 @@ export class Configuration {
 
     if (pkgjson) {
       if (pkgjson && pkgjson.changelog) {
-        this._config = deepmerge(
+        this._config = merge(
           this.config,
           pkgjson.changelog
         );
@@ -73,7 +73,7 @@ export class Configuration {
   loadFromPath(path: string) {
     const loader = new PackageJSONLoader(path);
     const content = loader.getContent();
-    this._config = deepmerge(CONFIG, content)
+    this._config = merge(CONFIG, content)
   }
 
   private _config?: ChangelogConfiguration;
