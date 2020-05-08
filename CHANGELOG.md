@@ -1,3 +1,14 @@
+##  1.0.2 (May 8, 2020)
+
+##### Build System / Dependencies
+
+*  keep a low target for building (785f5004)
+*  change tsconfig and start generating *.d.ts - still more work to do (ef688acb)
+
+##### Bug Fixes
+
+*  there was an issue with --output path (bf2a6d88)
+
 ##  1.0.1 (April 18, 2020)
 
 ##### Build System / Dependencies
