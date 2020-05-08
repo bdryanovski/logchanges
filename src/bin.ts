@@ -34,7 +34,7 @@ CLI.parse(process.argv);
   let output = '';
 
   if (CLI.format === 'json') {
-    output = cfg.config.outputJSON || '';
+    output = cli.output || cfg.config.outputJSON || '';
     // merge objects
     let currentContent: Record<string, string> = {};
     let currentString = '{}'
@@ -51,7 +51,7 @@ CLI.parse(process.argv);
   }
 
   if (CLI.format === 'markdown') {
-    output = cfg.config.outputMarkdown || '';
+    output = cli.output || cfg.config.outputMarkdown || '';
     let currentContent = '';
     if (fs.existsSync(output)) {
       currentContent = fs.readFileSync(output, 'utf8');
