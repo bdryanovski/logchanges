@@ -1,8 +1,22 @@
-##  1.0.3 (May 19, 2020)
-
+##  1.1.0 (May 19, 2020)
 ##### New Features
 
 * **formater:**  adding terminal formater to output to console when needed (01febb87)
+
+##  1.0.3 (May 19, 2020)
+
+##### Build System / Dependencies
+
+*  keep a low target for building (785f5004)
+*  change tsconfig and start generating *.d.ts - still more work to do (ef688acb)
+
+##### Chores
+
+*  update docs/ and CHANGELOG (a04172a7)
+
+##### Bug Fixes
+
+*  there was an issue with --output path (bf2a6d88)
 
 ##  1.0.2 (May 8, 2020)
 
