@@ -1,3 +1,13 @@
+##  1.1.2 (May 19, 2020)
+
+##### Build System / Dependencies
+
+*  some changes on scripts inside package.json (b75fbfee)
+
+##### Chores
+
+*  update docs/ and CHANGELOG (bf15f964)
+
 ##  1.1.1 (May 19, 2020)
 
 ##### Chores
