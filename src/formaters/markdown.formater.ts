@@ -23,15 +23,7 @@ export class MarkdownFormater extends Formater {
     content.push('## ' + (version ? ` ${version} (${date})` : date.toString()));
     content.push('');
 
-    const types: any = {};
-
-    commits.forEach((commit: GitCommit) => {
-      const type: string = this.getType(commit);
-      const category: string = commit.category;
-      types[type] = types[type] || {};
-      types[type][category] = types[type][category] || [];
-      types[type][category].push(commit);
-    });
+    const types = this.organizeCommits(commits);
 
     Object.keys(types).sort().forEach((type: string) => {
       let typeDescription = this.config.types[type];

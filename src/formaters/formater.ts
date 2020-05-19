@@ -1,4 +1,4 @@
-import { ChangelogConfiguration, GitCommit, FormaterOptions } from '../interfaces';
+import { ChangelogConfiguration, GitCommit, FormaterOptions, OrganizeStructure } from '../interfaces';
 
 /**
  * Basic Formater layout
@@ -43,5 +43,26 @@ export class Formater {
    */
   public render(commits: GitCommit[]): any {
     return commits;
+  }
+
+  /**
+   * Organize commits into object grouped by type and category
+   *
+   * @param commits array of git commits
+   *
+   * @return OrganizeStructure
+   */
+  public organizeCommits(commits: GitCommit[]): OrganizeStructure {
+    const scopes: any = {};
+
+    commits.forEach((commit: GitCommit) => {
+      const type: string = this.getType(commit);
+      const category: string = commit.category;
+      scopes[type] = scopes[type] || {};
+      scopes[type][category] = scopes[type][category] || [];
+      scopes[type][category].push(commit);
+    });
+
+    return scopes;
   }
 }

@@ -1,5 +1,5 @@
 import { GitCommit, ChangelogConfiguration } from './interfaces';
-const cp = require('child_process');
+import { execSync } from 'child_process';
 
 const SEPARATOR = '===END===';
 const COMMIT_PATTERN = /^([^)]*)(?:\(([^)]*?)\)|):(.*?(?:\[([^\]]+?)\]|))\s*$/;
@@ -21,13 +21,12 @@ export class FetchCommits {
       tag = this.options.range;
     } else {
       try {
-        tag = cp.execSync('git describe --tags --abbrev=0', { stdio: 'pipe' });
+        tag = execSync('git describe --tags --abbrev=0', { stdio: 'pipe' }).toString().trim();
       } catch {
         tag = '';
       }
     }
 
-    tag = tag.toString().trim();
     revisions = tag.includes('..') ? tag : tag ? tag + '..HEAD' : ''
 
     this.revisions = revisions;
@@ -40,7 +39,7 @@ export class FetchCommits {
    */
   public fetch(revisions?: string): GitCommit[] {
 
-    this.commits = cp.execSync(
+    this.commits = execSync(
       `git log -E --format=${FORMAT} ${revisions || this.revisions}`,
       { maxBuffer: Number.MAX_SAFE_INTEGER }
     )

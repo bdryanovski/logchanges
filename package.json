@@ -24,7 +24,7 @@
     "docs": "typedoc --out docs ./src",
     "changelog": "./bin/index.js",
     "update-package": "npm run clean && npm run docs && npm run build && npm run changelog",
-    "preversion": "npm run update-package && git add . && git commit -s -S -m 'chore: update docs/ and CHANGELOG'"
+    "postversion": "npm run update-package && git add . && git commit -s -S -m 'chore: update docs/ and CHANGELOG'"
   },
   "keywords": [
     "changelog",

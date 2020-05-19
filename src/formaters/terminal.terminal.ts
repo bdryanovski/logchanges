@@ -10,7 +10,7 @@ export class TerminalFormater extends Formater {
   }
 
   /**
-   * Render JSON output
+   * Render string output
    *
    * @param commits array of git commits
    */
@@ -20,16 +20,7 @@ export class TerminalFormater extends Formater {
 
     output += `version: ${version} \n`
 
-    // @TODO this could be done into helper function (scopes)
-    const scopes: any = {};
-
-    commits.forEach((commit: GitCommit) => {
-      const type: string = this.getType(commit);
-      const category: string = commit.category;
-      scopes[type] = scopes[type] || {};
-      scopes[type][category] = scopes[type][category] || [];
-      scopes[type][category].push(commit);
-    });
+    const scopes = this.organizeCommits(commits);
 
     Object.keys(scopes)
       .sort()

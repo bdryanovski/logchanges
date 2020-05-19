@@ -26,15 +26,7 @@ export class JsonFormater extends Formater {
       }
     }
 
-    const scopes: any = {};
-
-    commits.forEach((commit: GitCommit) => {
-      const type: string = this.getType(commit);
-      const category: string = commit.category;
-      scopes[type] = scopes[type] || {};
-      scopes[type][category] = scopes[type][category] || [];
-      scopes[type][category].push(commit);
-    });
+    const scopes = this.organizeCommits(commits);
 
     Object.keys(scopes)
       .sort()
@@ -52,15 +44,17 @@ export class JsonFormater extends Formater {
 
         // category
         Object.keys(scopes[type]).forEach((category: string) => {
+          // @ts-ignore
           content[version].changes[type].changes =
-            [...content[version].changes[type].changes,
-              ...scopes[type][category].map((commit: GitCommit) => {
-                commit.hash = commit.hash.substring(0, 8);
-                if (this.config.repoUrl) {
-                  commit.githubLink = this.getCommitUrl(this.config.repoUrl, commit.hash);
-                }
-                return commit;
-              })
+            [
+              ...content[version].changes[type].changes,
+              ...scopes[type][category].map((commit: GitCommit): GitCommit => {
+                  commit.hash = commit.hash.substring(0, 8);
+                  if (this.config.repoUrl) {
+                    commit.githubLink = this.getCommitUrl(this.config.repoUrl, commit.hash);
+                  }
+                  return commit;
+                })
             ];
         });
       });

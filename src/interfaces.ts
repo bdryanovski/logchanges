@@ -75,3 +75,9 @@ export interface GitCommit {
   category: string;
   githubLink?: string;
 }
+
+export type OrganizeStructure = {
+  [type: string]: {
+    [category: string]: GitCommit[]
+  }
+}
