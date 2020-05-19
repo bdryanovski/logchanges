@@ -1,5 +1,9 @@
 ##  1.1.1 (May 19, 2020)
 
+##### Chores
+
+*  update docs/ and CHANGELOG (bf15f964)
+
 ##  1.1.0 (May 19, 2020)
 ##### New Features
 
