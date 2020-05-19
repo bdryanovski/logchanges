@@ -13,7 +13,7 @@ export interface ChangelogConfiguration {
   repoUrl?: string;
   outputMarkdown: string;
   outputJSON: string;
-  format?: 'markdown' | 'json';
+  format?: 'markdown' | 'json' | 'terminal';
   range?: string;
   exclude?: string;
   output?: string;
@@ -64,6 +64,8 @@ export interface JsonOutput {
     };
   }
 }
+
+export type TerminalOutput = string;
 
 export interface GitCommit {
   hash: string;

@@ -1,6 +1,7 @@
 import { FetchCommits } from './fetch.commits';
 import { MarkdownFormater } from './formaters/markdown.formater';
 import { JsonFormater } from './formaters/json.formater';
+import { TerminalFormater } from './formaters/terminal.terminal';
 import { GitCommit, JsonOutput, ChangelogConfiguration } from './interfaces';
 import { Configuration } from './configuration';
 
@@ -18,6 +19,10 @@ export function generate(options: ChangelogConfiguration): JsonOutput | string {
 
   if (options.format === 'json') {
     return (new JsonFormater({ config })).render(commits)
+  }
+
+  if (options.format === 'terminal') {
+    return (new TerminalFormater({ config })).render(commits)
   }
 
   return (new MarkdownFormater({ config })).render(commits)

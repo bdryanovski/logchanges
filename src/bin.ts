@@ -59,8 +59,12 @@ CLI.parse(process.argv);
     content = generate(cfg.config) as string + currentContent;
   }
 
+  if (CLI.format === 'terminal') {
+    content = generate(cfg.config) as string;
+  }
 
-  if (process.argv[process.argv.length - 1] === STDOUT_PATH) {
+
+  if (process.argv[process.argv.length - 1] === STDOUT_PATH || CLI.format === 'terminal') {
     // @ts-ignore
     return fs.writeSync(process.stdout.fd, content);
   }
