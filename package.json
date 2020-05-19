@@ -1,6 +1,6 @@
 {
   "name": "logchanges",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Generate changelog based on Git commits",
   "author": "Bozhidar Dryanovski <bozhidar.dryanovski@gmail.com> (https://github.com/bdryanovski)",
   "license": "MIT",
