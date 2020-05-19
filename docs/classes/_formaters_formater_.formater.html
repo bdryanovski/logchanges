@@ -116,6 +116,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_formaters_formater_.formater.html#getcommiturl" class="tsd-kind-icon">get<wbr>Commit<wbr>Url</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_formaters_formater_.formater.html#gettype" class="tsd-kind-icon">get<wbr>Type</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_formaters_formater_.formater.html#organizecommits" class="tsd-kind-icon">organize<wbr>Commits</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_formaters_formater_.formater.html#render" class="tsd-kind-icon">render</a></li>
 							</ul>
 						</section>
@@ -134,7 +135,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/01febb8/src/formaters/formater.ts#L7">src/formaters/formater.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/e18e00a/src/formaters/formater.ts#L7">src/formaters/formater.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -161,7 +162,7 @@
 					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_.changelogconfiguration.html" class="tsd-signature-type">ChangelogConfiguration</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/01febb8/src/formaters/formater.ts#L7">src/formaters/formater.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/e18e00a/src/formaters/formater.ts#L7">src/formaters/formater.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -178,7 +179,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/01febb8/src/formaters/formater.ts#L18">src/formaters/formater.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/e18e00a/src/formaters/formater.ts#L18">src/formaters/formater.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -215,7 +216,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/01febb8/src/formaters/formater.ts#L35">src/formaters/formater.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/e18e00a/src/formaters/formater.ts#L35">src/formaters/formater.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -242,6 +243,38 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="organizecommits" class="tsd-anchor"></a>
+					<h3>organize<wbr>Commits</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">organize<wbr>Commits<span class="tsd-signature-symbol">(</span>commits<span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_.gitcommit.html" class="tsd-signature-type">GitCommit</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_interfaces_.html#organizestructure" class="tsd-signature-type">OrganizeStructure</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/e18e00a/src/formaters/formater.ts#L55">src/formaters/formater.ts:55</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Organize commits into object grouped by type and category</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>commits: <a href="../interfaces/_interfaces_.gitcommit.html" class="tsd-signature-type">GitCommit</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>array of git commits</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_interfaces_.html#organizestructure" class="tsd-signature-type">OrganizeStructure</a></h4>
+							<p>OrganizeStructure</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="render" class="tsd-anchor"></a>
 					<h3>render</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -251,7 +284,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/01febb8/src/formaters/formater.ts#L44">src/formaters/formater.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/bdryanovski/logchanges/blob/e18e00a/src/formaters/formater.ts#L44">src/formaters/formater.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -336,6 +369,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_formaters_formater_.formater.html#gettype" class="tsd-kind-icon">get<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_formaters_formater_.formater.html#organizecommits" class="tsd-kind-icon">organize<wbr>Commits</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_formaters_formater_.formater.html#render" class="tsd-kind-icon">render</a>
