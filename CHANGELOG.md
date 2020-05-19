@@ -1,3 +1,9 @@
+##  1.0.3 (May 19, 2020)
+
+##### New Features
+
+* **formater:**  adding terminal formater to output to console when needed (01febb87)
+
 ##  1.0.2 (May 8, 2020)
 
 ##### Build System / Dependencies
